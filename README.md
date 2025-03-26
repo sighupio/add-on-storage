@@ -1,27 +1,31 @@
-<h1>
-    <img src="https://github.com/sighupio/fury-distribution/blob/main/docs/assets/fury-epta-white.png?raw=true" align="left" width="90" style="margin-right: 15px"/>
-    Kubernetes Fury Storage
+<h1 align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sighupio/distribution/refs/heads/main/docs/assets/white-logo.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sighupio/distribution/refs/heads/main/docs/assets/black-logo.png">
+  <img alt="Shows a black logo in light color mode and a white one in dark color mode." src="https://raw.githubusercontent.com/sighupio/distribution/refs/heads/main/docs/assets/white-logo.png">
+</picture><br/>
+  Storage Add-On Module
 </h1>
 
 ![Release](https://img.shields.io/badge/Latest%20Release-v0.2.0-blue)
-![License](https://img.shields.io/github/license/sighupio/fury-kubernetes-logging?label=License)
+![License](https://img.shields.io/github/license/sighupio/add-on-storage?label=License)
 ![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack&label=Slack)
 
-<!-- <KFD-DOCS> -->
+<!-- <SD-DOCS> -->
 
-**Kubernetes Fury Storage** provides the Rook Kubernetes Operator for Ceph add-on for [Kubernetes Fury Distribution (KFD)][kfd-repo].
+**Storage Add-On Module** provides the Rook Kubernetes Operator for Ceph add-on for [SIGHUP Distribution (SD)][sd-repo].
 
-If you are new to KFD please refer to the [official documentation][kfd-docs] on how to get started with KFD.
+If you are new to SD please refer to the [official documentation][sd-docs] on how to get started with SD.
 
 ## Overview
 
-**Kubernetes Fury Storage** uses the [Rook operator][rook-page] to install and manage Ceph clusters in a Kubernetes environment.
+**Storage Add-On Module** uses the [Rook operator][rook-page] to install and manage Ceph clusters in a Kubernetes environment.
 
 All the components are deployed in the `rook-ceph` namespace of the cluster.
 
 ## Packages
 
-The following packages are included in the Fury Kubernetes Storage katalog:
+The following packages are included in the Storage Add-On Module katalog:
 
 | Package                                      | Version    | Description                                                                                                                                          |
 |----------------------------------------------|------------|-------------------------------------------------------------------------------------------------|
@@ -50,7 +54,7 @@ The module is still in version `0.X.X` but can be used in production.
 
 | Tool                                  | Version    | Description                                                                                                                                                    |
 |---------------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [furyctl][furyctl-repo]               | `>=0.6.0`  | The recommended tool to download and manage KFD modules and their packages. To learn more about `furyctl` read the [official documentation][furyctl-repo].     |
+| [furyctl][furyctl-repo]               | `>=0.6.0`  | The recommended tool to download and manage SD modules and their packages. To learn more about `furyctl` read the [official documentation][furyctl-repo].     |
 | [kustomize][kustomize-repo]           | `3.5.3`    | Packages are customized using `kustomize`. To learn how to create your customization layer with `kustomize`, please refer to the [repository][kustomize-repo]. |
 | [cert-manager][fury-ingress]          | `>=1.13.1` | cert-manager is needed by Rook in order to install a Validating Webhook to asses that Rook CRs are correctly configured.                                       |
 | [prometheus-opeator][fury-monitoring] | `>=2.0.1`  | prometheus-operator is needed by Rook in order to install the ServiceMonitor needed to monitor the Ceph cluster.                                               |
@@ -96,15 +100,15 @@ kustomize build . | kubectl apply -f - --server-side
 <!-- Links -->
 
 [rook-page]: https://rook.io
-[kfd-repo]: https://github.com/sighupio/fury-distribution
+[sd-repo]: https://github.com/sighupio/distribution
 [furyctl-repo]: https://github.com/sighupio/furyctl
 [kustomize-repo]: https://github.com/kubernetes-sigs/kustomize
-[kfd-docs]: https://docs.kubernetesfury.com/docs/distribution/
+[sd-docs]: https://docs.kubernetesfury.com/docs/distribution/
 [compatibility-matrix]: https://github.com/sighupio/fury-kubernetes-storage/blob/main/docs/COMPATIBILITY_MATRIX.md
 [fury-ingress]: https://github.com/sighupio/fury-kubernetes-ingress/tree/main/katalog/cert-manager
 [fury-monitoring]: https://github.com/sighupio/fury-kubernetes-monitoring/tree/main/katalog/prometheus-operator
 
-<!-- </KFD-DOCS> -->
+<!-- </SD-DOCS> -->
 
 <!-- <FOOTER> -->
 

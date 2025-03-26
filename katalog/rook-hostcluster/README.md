@@ -1,6 +1,6 @@
 # Rook Host Cluster
 
-<!-- <KFD-DOCS> -->
+<!-- <SD-DOCS> -->
 
 Rook Host Cluster deploys a Ceph [host storage cluster](https://rook.io/docs/rook/v1.10/CRDs/Cluster/host-cluster/) using Rook CRs as defined by [Rook Operator](../rook-operator).
 
@@ -58,7 +58,7 @@ Now if you go to <https://127.0.0.1:8443> on your browser you can authenticate a
 > ⚠️ **WARNING**
 > Be careful since, by default, the dashboard gives you R/W access to your Ceph cluster and you risk of deleting resources created throught the operator CRDs.
 
-<!-- </KFD-DOCS> -->
+<!-- </SD-DOCS> -->
 
 ## License
 

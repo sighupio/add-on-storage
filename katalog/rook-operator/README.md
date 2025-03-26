@@ -1,6 +1,6 @@
 # Rook Operator
 
-<!-- <KFD-DOCS> -->
+<!-- <SD-DOCS> -->
 
 Rook provides a way to run a highly available, durable Ceph storage in your Kubernetes cluster.
 See [Rook website][rook-website] for more details about the project.
@@ -31,4 +31,4 @@ kustomize build . | kubectl apply -f - --server-side
 [rook-website]: https://rook.io/
 [cert-manager]: https://github.com/sighupio/fury-kubernetes-ingress/tree/main/katalog/cert-manager
 
-<!-- </KFD-DOCS> -->
+<!-- </SD-DOCS> -->
