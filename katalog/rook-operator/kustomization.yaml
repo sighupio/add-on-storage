@@ -11,10 +11,10 @@ namespace: rook-ceph
 images:
   - name: rook/ceph
     newName: registry.sighup.io/fury/rook/ceph
-    newTag: v1.15.9
+    newTag: v1.17.0
   - name: quay.io/ceph/ceph
     newName: registry.sighup.io/fury/ceph/ceph
-    newTag: v17.2.5
+    newTag: v19.2.2
 
 patchesStrategicMerge:
   - patches/rook-ceph-operator-config-csi-images.yml
