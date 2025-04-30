@@ -12,7 +12,7 @@ The reference architecture implemented by this module is one with a dedicated no
 
 ## Requirements
 
-- Kubernetes >= `1.19.0`
+- Kubernetes >= `1.26.0`
 - Kustomize = `v3.5.3`
 - [rook-operator](../rook-operator)
 - [prometheus-operator](https://github.com/sighupio/fury-kubernetes-monitoring/tree/main/katalog/prometheus-operator)
