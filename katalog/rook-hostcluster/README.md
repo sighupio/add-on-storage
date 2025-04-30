@@ -20,7 +20,7 @@ The reference architecture implemented by this module is one with a dedicated no
 
 ## Image repository and tag
 
-* Ceph image: `registry.sighup.io/fury/ceph/ceph:v17.2.`
+* Ceph image: `registry.sighup.io/fury/ceph/ceph:v19.2.2`
 
 ## Configuration
 
