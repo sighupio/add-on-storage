@@ -7,7 +7,7 @@ cluster. See [Rook website][rook-website] for more details about the project.
 
 ## Requirements
 
-- Kubernetes >= `1.26.0`
+- Kubernetes >= `1.28.0`
 - Kustomize >= `v3.5.3`
 - [cert-manager][cert-manager]
 
@@ -16,7 +16,7 @@ cluster. See [Rook website][rook-website] for more details about the project.
 
 ## Image repository and tag
 
-- Rook Operator image: `registry.sighup.io/fury/rook/ceph:v1.15.9`
+- Rook Operator image: `registry.sighup.io/fury/rook/ceph:v1.17.0`
 - Ceph image: `registry.sighup.io/fury/ceph/ceph:v19.2.2`
 
 ## Deployment
