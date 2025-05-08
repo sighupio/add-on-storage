@@ -18,7 +18,7 @@ images:
 
 resources:
   - monitoring
-  - ceph-blockpool.yaml
+  - ceph-pool.yaml
   - ceph-cluster.yaml
   - ceph-filesystem.yaml
   - sc-cephfs.yaml
