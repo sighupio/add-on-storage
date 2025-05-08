@@ -55,12 +55,10 @@ The module is still in version `0.X.X` but can be used in production.
 
 ### Prerequisites
 
-| Tool                                  | Version    | Description                                                                                                                                                    |
-| ------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [furyctl][furyctl-repo]               | `>=0.6.0`  | The recommended tool to download and manage SD modules and their packages. To learn more about `furyctl` read the [official documentation][furyctl-repo].      |
-| [kustomize][kustomize-repo]           | `3.5.3`    | Packages are customized using `kustomize`. To learn how to create your customization layer with `kustomize`, please refer to the [repository][kustomize-repo]. |
-| [cert-manager][fury-ingress]          | `>=1.13.1` | cert-manager is needed by Rook in order to install a Validating Webhook to asses that Rook CRs are correctly configured.                                       |
-| [prometheus-opeator][fury-monitoring] | `>=2.0.1`  | prometheus-operator is needed by Rook in order to install the ServiceMonitor needed to monitor the Ceph cluster.                                               |
+| Tool                                  | Version    | Description                                                                                                                                               |
+| ------------------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [furyctl][furyctl-repo]               | `>=0.29.0` | The recommended tool to download and manage SD modules and their packages. To learn more about `furyctl` read the [official documentation][furyctl-repo]. |
+| [prometheus-opeator][fury-monitoring] | `>=2.0.1`  | prometheus-operator is needed by Rook in order to install the ServiceMonitor needed to monitor the Ceph cluster.                                          |
 
 ### Deployment
 
@@ -71,11 +69,13 @@ In your `furyctl.yaml` specify the storage-add-on as a plugin:
 ```yaml
 plugins:
   kustomize:
-    - name: storage
-      folder: https://github.com/sighupio/add-on-storage/katalog/rook-hostcluster?ref=v0.3.0
-    - name: storage
+    - name: rook-operator
       folder: https://github.com/sighupio/add-on-storage/katalog/rook-operator?ref=v0.3.0
+    - name: rook-hostcluster
+      folder: https://github.com/sighupio/add-on-storage/katalog/rook-hostcluster?ref=v0.3.0
 ```
+
+Then, use `furyctl apply` to deploy cheph in your cluster.
 
 #### Legacy
 
