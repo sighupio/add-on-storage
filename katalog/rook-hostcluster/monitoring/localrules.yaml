@@ -1,3 +1,7 @@
+# Copyright (c) 2017-present SIGHUP s.r.l All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
 # Copied from /deploy/charts/rook-ceph-cluster/prometheus/, CR header added, and indentation increased on the groups
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
