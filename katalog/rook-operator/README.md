@@ -9,7 +9,7 @@ cluster. See [Rook website][rook-website] for more details about the project.
 
 - Kubernetes >= `1.29.0`
 
-> cert-manager is nedeed to let Rook setup a Validating Webhook to asses that Rook
+> cert-manager is nedeed to let Rook setup a Validating Webhook to assess that Rook
 > CRDs are correctly configured.
 
 ## Image repository and tag

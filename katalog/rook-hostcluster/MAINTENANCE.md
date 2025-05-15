@@ -1,6 +1,6 @@
 # `rook-hostcluster` Package Maintenance
 
-The resources in this package were tailor-made but where based on the following
+The resources in this package were tailor-made but were based on the following
 files from the upstream project:
 
 - [cluster.yaml](https://github.com/rook/rook/blob/v1.15.9/deploy/examples/cluster.yaml)
