@@ -22,7 +22,7 @@ cluster. See [Rook website][rook-website] for more details about the project.
 You can deploy the Rook operator with the following command:
 
 ```bash
-kubectl apply --server-side -k .
+kustomize build . | kubectl apply -f - --server-side
 ```
 
 <!-- Links -->
