@@ -122,11 +122,9 @@ kustomize build . | kubectl apply -f - --server-side
 [rook-page]: https://rook.io
 [sd-repo]: https://github.com/sighupio/distribution
 [furyctl-repo]: https://github.com/sighupio/furyctl
-[kustomize-repo]: https://github.com/kubernetes-sigs/kustomize
-[sd-docs]: https://docs.kubernetesfury.com/docs/distribution/
-[compatibility-matrix]: https://github.com/sighupio/fury-kubernetes-storage/blob/main/docs/COMPATIBILITY_MATRIX.md
-[fury-ingress]: https://github.com/sighupio/fury-kubernetes-ingress/tree/main/katalog/cert-manager
-[fury-monitoring]: https://github.com/sighupio/fury-kubernetes-monitoring/tree/main/katalog/prometheus-operator
+[sd-docs]: https://docs.sighup.io/
+[compatibility-matrix]: https://github.com/sighupio/add-on-storage/blob/main/docs/COMPATIBILITY_MATRIX.md
+[fury-monitoring]: https://github.com/sighupio/module-monitoring/tree/main/katalog/prometheus-operator
 
 <!-- </SD-DOCS> -->
 
