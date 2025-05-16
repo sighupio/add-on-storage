@@ -40,14 +40,11 @@ Click on each package to see its full documentation.
 
 ## Compatibility
 
-| Kubernetes Version |   Compatibility    | Notes           |
-| ------------------ | :----------------: | --------------- |
-| `1.29.x`           | :white_check_mark: | No known issues |
-| `1.30.x`           | :white_check_mark: | No known issues |
-| `1.31.x`           | :white_check_mark: | No known issues |
+- The minimum supported Kubernetes version is `v1.26.x`.
+- The minimum supported Ceph version is `v17.2.0`
 
 Check the [compatibility matrix][compatibility-matrix] for additional information
-about previous releases of the modules.
+about previous releases of the module.
 
 The module is still in version `0.X.X` but can be used in production.
 
