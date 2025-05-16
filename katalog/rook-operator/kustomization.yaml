@@ -9,7 +9,7 @@ kind: Kustomization
 namespace: rook-ceph
 
 images:
-  - name: rook/ceph
+  - name: docker.io/rook/ceph
     newName: registry.sighup.io/fury/rook/ceph
     newTag: v1.15.9
   - name: quay.io/ceph/ceph
