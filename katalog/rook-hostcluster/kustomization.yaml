@@ -8,10 +8,19 @@ kind: Kustomization
 
 namespace: rook-ceph
 
+images:
+  - name: rook/ceph
+    newName: registry.sighup.io/fury/rook/ceph
+    newTag: v1.15.9
+  - name: quay.io/ceph/ceph
+    newName: registry.sighup.io/fury/ceph/ceph
+    newTag: v17.2.5
+
 resources:
   - monitoring
-  - ceph-blockpool.yml
-  - ceph-cluster.yml
-  - ceph-filesystem.yml
-  - sc-cephfs.yml
-  - sc-rbd.yml
+  - ceph-pool.yaml
+  - ceph-cluster.yaml
+  - ceph-filesystem.yaml
+  - sc-cephfs.yaml
+  - sc-rbd.yaml
+  - toolbox.yaml
