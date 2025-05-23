@@ -19,7 +19,7 @@ in the following diagram:
 ## Requirements
 
 - Kubernetes >= `1.26.x`
-- Kustomize = `v3.5.3`
+- Kustomize = `v5.6.0`
 - [rook-operator](../rook-operator)
 - [prometheus-operator](https://github.com/sighupio/fury-kubernetes-monitoring/tree/main/katalog/prometheus-operator)
 - Empty raw disks attached to Ceph nodes
