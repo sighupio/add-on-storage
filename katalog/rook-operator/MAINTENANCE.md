@@ -5,7 +5,7 @@ To prepare a new release of this package:
 1. Get the current upstream release
 
    ```bash
-   export ROOK_RELEASE=v1.15.9
+   export ROOK_RELEASE=v1.17.2
    wget -c https://raw.githubusercontent.com/rook/rook/${ROOK_RELEASE}/deploy/examples/common.yaml \
      https://raw.githubusercontent.com/rook/rook/${ROOK_RELEASE}/deploy/examples/crds.yaml \
      https://raw.githubusercontent.com/rook/rook/${ROOK_RELEASE}/deploy/examples/toolbox.yaml \
