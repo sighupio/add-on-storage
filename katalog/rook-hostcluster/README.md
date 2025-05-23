@@ -13,7 +13,7 @@ in the following diagram:
 
 > ⚠️ **WARNING**
 > Most probably, you don't want to use this package _as-is_ but you want to choose
-> in which nodes the Ceph cluster will be deployed. Head over to the [example](../../examples/rook-hostcluster-nodeSelector/)
+> in which nodes the Ceph cluster will be deployed. Head over to the [example](../../examples/legacy/rook-hostcluster-nodeSelector/)
 > that shows how to do that.
 
 ## Requirements
