@@ -7,7 +7,7 @@
   Storage Add-On Module
 </h1>
 
-![Release](https://img.shields.io/badge/Latest%20Release-v0.3.0-blue)
+![Release](https://img.shields.io/badge/Latest%20Release-v0.3.1-blue)
 ![License](https://img.shields.io/github/license/sighupio/add-on-storage?label=License)
 ![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack&label=Slack)
 
@@ -67,9 +67,9 @@ In your `furyctl.yaml` specify the storage-add-on as a plugin:
 plugins:
   kustomize:
     - name: rook-operator
-      folder: https://github.com/sighupio/add-on-storage/katalog/rook-operator?ref=v0.3.0
+      folder: https://github.com/sighupio/add-on-storage/katalog/rook-operator?ref=v0.3.1
     - name: rook-hostcluster
-      folder: https://github.com/sighupio/add-on-storage/katalog/rook-hostcluster?ref=v0.3.0
+      folder: https://github.com/sighupio/add-on-storage/katalog/rook-hostcluster?ref=v0.3.1
 ```
 
 Then, use `furyctl apply` to deploy cheph in your cluster.
@@ -85,9 +85,9 @@ Then, use `furyctl apply` to deploy cheph in your cluster.
      - name: monitoring/promtheus-operator
        version: "v2.0.1"
      - name: storage/rook-operator
-       version: "v0.3.0"
+       version: "v0.3.1"
      - name: storage/rook-hostcluster
-       version: "v0.3.0"
+       version: "v0.3.1"
    ```
 
    > [!INFO]
