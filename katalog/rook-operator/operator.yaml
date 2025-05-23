@@ -55,11 +55,6 @@ data:
   # there is significant drop in read/write performance.
   # CSI_ENABLE_HOST_NETWORK: "true"
 
-  # Deprecation note: Rook uses "holder" pods to allow CSI to connect to the multus public network
-  # without needing hosts to the network. Holder pods are being removed. See issue for details:
-  # https://github.com/rook/rook/issues/13055. New Rook deployments should set this to "true".
-  CSI_DISABLE_HOLDER_PODS: "true"
-
   # Set to true to enable adding volume metadata on the CephFS subvolume and RBD images.
   # Not all users might be interested in getting volume/snapshot details as metadata on CephFS subvolume and RBD images.
   # Hence enable metadata is false by default.
@@ -128,12 +123,12 @@ data:
   # The default version of CSI supported by Rook will be started. To change the version
   # of the CSI driver to something other than what is officially supported, change
   # these images to the desired release of the CSI driver.
-  # ROOK_CSI_CEPH_IMAGE: "quay.io/cephcsi/cephcsi:v3.12.3"
-  # ROOK_CSI_REGISTRAR_IMAGE: "registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.11.1"
-  # ROOK_CSI_RESIZER_IMAGE: "registry.k8s.io/sig-storage/csi-resizer:v1.11.1"
-  # ROOK_CSI_PROVISIONER_IMAGE: "registry.k8s.io/sig-storage/csi-provisioner:v5.0.1"
-  # ROOK_CSI_SNAPSHOTTER_IMAGE: "registry.k8s.io/sig-storage/csi-snapshotter:v8.0.1"
-  # ROOK_CSI_ATTACHER_IMAGE: "registry.k8s.io/sig-storage/csi-attacher:v4.6.1"
+  # ROOK_CSI_CEPH_IMAGE: "quay.io/cephcsi/cephcsi:v3.14.0"
+  # ROOK_CSI_REGISTRAR_IMAGE: "registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.13.0"
+  # ROOK_CSI_RESIZER_IMAGE: "registry.k8s.io/sig-storage/csi-resizer:v1.13.1"
+  # ROOK_CSI_PROVISIONER_IMAGE: "registry.k8s.io/sig-storage/csi-provisioner:v5.1.0"
+  # ROOK_CSI_SNAPSHOTTER_IMAGE: "registry.k8s.io/sig-storage/csi-snapshotter:v8.2.0"
+  # ROOK_CSI_ATTACHER_IMAGE: "registry.k8s.io/sig-storage/csi-attacher:v4.8.0"
 
   # To indicate the image pull policy to be applied to all the containers in the csi driver pods.
   # ROOK_CSI_IMAGE_PULL_POLICY: "IfNotPresent"
@@ -479,7 +474,12 @@ data:
   # CSI_CEPHFS_LIVENESS_METRICS_PORT: "9081"
   # Configure CSI RBD liveness metrics port
   # CSI_RBD_LIVENESS_METRICS_PORT: "9080"
+
+  # We can override the ports for each individual component that uses the CSIADDONS sidecar
+  # This is useful if we're running in hostNetwork, where ports may conflict on the same host
   # CSIADDONS_PORT: "9070"
+  # CSIADDONS_RBD_PROVISIONER_PORT: "9070"
+  # CSIADDONS_CEPHFS_PROVISIONER_PORT: "9070"
 
   # Set CephFS Kernel mount options to use https://docs.ceph.com/en/latest/man/8/mount.ceph/#options
   # Set to "ms_mode=secure" when connections.encrypted is enabled in CephCluster CR
@@ -500,6 +500,12 @@ data:
   # Custom prefix value for the OBC provisioner instead of ceph cluster namespace, do not set on existing cluster
   # ROOK_OBC_PROVISIONER_NAME_PREFIX: "custom-prefix"
 
+  # Many OBC additional config fields may be risky for administrators to allow users control over.
+  # The safe and default-allowed fields are 'maxObjects' and 'maxSize'.
+  # Other fields should be considered risky. To allow all additional configs, use this value:
+  #   "maxObjects,maxSize,bucketMaxObjects,bucketMaxSize,bucketPolicy,bucketLifecycle,bucketOwner"
+  # ROOK_OBC_ALLOW_ADDITIONAL_CONFIG_FIELDS: "maxObjects,maxSize" # default allowed configs
+
   # Whether to start the discovery daemon to watch for raw storage devices on nodes in the cluster.
   # This daemon does not need to run if you are only going to create your OSDs based on StorageClassDeviceSets with PVCs.
   ROOK_ENABLE_DISCOVERY_DAEMON: "false"
@@ -509,7 +515,7 @@ data:
   CSI_ENABLE_CSIADDONS: "false"
   # Enable watch for faster recovery from rbd rwo node loss
   ROOK_WATCH_FOR_NODE_FAILURE: "true"
-  # ROOK_CSIADDONS_IMAGE: "quay.io/csiaddons/k8s-sidecar:v0.9.1"
+  # ROOK_CSIADDONS_IMAGE: "quay.io/csiaddons/k8s-sidecar:v0.12.0"
   # The CSI GRPC timeout value (in seconds). It should be >= 120. If this variable is not set or is an invalid value, it's default to 150.
   CSI_GRPC_TIMEOUT_SECONDS: "150"
 
@@ -575,6 +581,9 @@ data:
 
   # RevisionHistoryLimit value for all deployments created by rook.
   # ROOK_REVISION_HISTORY_LIMIT: "3"
+
+  #  Custom label to identify node hostname. If not set `kubernetes.io/hostname` will be used
+  ROOK_CUSTOM_HOSTNAME_LABEL: ""
 ---
 # OLM: BEGIN OPERATOR DEPLOYMENT
 apiVersion: apps/v1
@@ -609,7 +618,7 @@ spec:
       serviceAccountName: rook-ceph-system
       containers:
         - name: rook-ceph-operator
-          image: docker.io/rook/ceph:v1.15.9
+          image: docker.io/rook/ceph:v1.17.2
           args: ["ceph", "operator"]
           securityContext:
             runAsNonRoot: true
@@ -682,8 +691,9 @@ spec:
           #- name: LIB_BUCKET_PROVISIONER_THREADS
           #  value: "5"
 
-      # Uncomment it to run rook operator on the host network
-      #hostNetwork: true
+      # Uncomment these two settings to run the operator on the host network
+      # hostNetwork: true
+      # dnsPolicy: ClusterFirstWithHostNet
       volumes:
         - name: rook-config
           emptyDir: {}
