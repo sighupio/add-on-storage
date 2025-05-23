@@ -7,7 +7,7 @@ cluster. See [Rook website][rook-website] for more details about the project.
 
 ## Requirements
 
-- Kubernetes >= `1.29.0`
+- Kubernetes >= `1.26.0`
 
 > cert-manager is nedeed to let Rook setup a Validating Webhook to assess that Rook
 > CRDs are correctly configured.
