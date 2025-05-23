@@ -2,7 +2,7 @@
 
 <!-- <SD-DOCS> -->
 
-Rook Host Cluster deploys a Ceph [host storage cluster](https://rook.io/docs/rook/v1.10/CRDs/Cluster/host-cluster/)
+Rook Host Cluster deploys a Ceph [host storage cluster](https://rook.io/docs/rook/v1.15/CRDs/Cluster/host-cluster/)
 using Rook CRs as defined by [Rook Operator](../rook-operator).
 
 The reference architecture implemented by this module is one with a dedicated node
@@ -18,7 +18,7 @@ in the following diagram:
 
 ## Requirements
 
-- Kubernetes >= `1.19.0`
+- Kubernetes >= `1.26.x`
 - Kustomize = `v3.5.3`
 - [rook-operator](../rook-operator)
 - [prometheus-operator](https://github.com/sighupio/fury-kubernetes-monitoring/tree/main/katalog/prometheus-operator)
@@ -26,7 +26,7 @@ in the following diagram:
 
 ## Image repository and tag
 
-- Ceph image: `registry.sighup.io/fury/ceph/ceph:v17.2.5`
+- Ceph image: `registry.sighup.io/fury/ceph/ceph:v19.2.2`
 
 ## Configuration
 
