@@ -20,14 +20,14 @@ metadata:
 spec:
   cephVersion:
     # The container image used to launch the Ceph daemon pods (mon, mgr, osd, mds, rgw).
-    # v17 is Quincy, v18 is Reef.
-    # RECOMMENDATION: In production, use a specific version tag instead of the general v17 flag, which pulls the latest release and could result in different
+    # v18 is Reef, v19 is Squid
+    # RECOMMENDATION: In production, use a specific version tag instead of the general v19 flag, which pulls the latest release and could result in different
     # versions running within the cluster. See tags available at https://hub.docker.com/r/ceph/ceph/tags/.
-    # If you want to be more precise, you can always use a timestamp tag such as quay.io/ceph/ceph:v18.2.4-20240724
+    # If you want to be more precise, you can always use a timestamp tag such as quay.io/ceph/ceph:v19.2.2-20250409
     # This tag might not contain a new Ceph version, just security fixes from the underlying operating system, which will reduce vulnerabilities
-    image: registry.sighup.io/fury/ceph/ceph:v19.2.2
-    # Whether to allow unsupported versions of Ceph. Currently `quincy` and `reef` are supported.
-    # Future versions such as `squid` (v19) would require this to be set to `true`.
+    image: quay.io/ceph/ceph:v19.2.2
+    # Whether to allow unsupported versions of Ceph. Currently Reef and Squid are supported.
+    # Future versions such as Tentacle (v20) would require this to be set to `true`.
     # Do not set to true in production.
     allowUnsupported: false
   # The path on the host where configuration files will be persisted. Must be specified. If there are multiple clusters, the directory must be unique for each cluster.
@@ -312,10 +312,6 @@ spec:
     # A duration in minutes that determines how long an entire failureDomain like `region/zone/host` will be held in `noout` (in addition to the
     # default DOWN/OUT interval) when it is draining. This is only relevant when  `managePodBudgets` is `true`. The default value is `30` minutes.
     osdMaintenanceTimeout: 30
-    # A duration in minutes that the operator will wait for the placement groups to become healthy (active+clean) after a drain was completed and OSDs came back up.
-    # Operator will continue with the next drain if the timeout exceeds. It only works if `managePodBudgets` is `true`.
-    # No values or 0 means that the operator will wait until the placement groups are healthy before unblocking the next drain.
-    pgHealthCheckTimeout: 0
 
   # csi defines CSI Driver settings applied per cluster.
   csi:
@@ -330,7 +326,7 @@ spec:
     cephfs:
       # Set CephFS Kernel mount options to use https://docs.ceph.com/en/latest/man/8/mount.ceph/#options.
       # kernelMountOptions: ""
-      # Set CephFS Fuse mount options to use https://docs.ceph.com/en/quincy/man/8/ceph-fuse/#options.
+      # Set CephFS Fuse mount options to use https://docs.ceph.com/en/latest/man/8/ceph-fuse/#options.
       # fuseMountOptions: ""
 
   # healthChecks

@@ -7,7 +7,7 @@
   Storage Add-On Module
 </h1>
 
-![Release](https://img.shields.io/badge/Latest%20Release-v0.3.1-blue)
+![Release](https://img.shields.io/badge/Latest%20Release-v0.4.0-blue)
 ![License](https://img.shields.io/github/license/sighupio/add-on-storage?label=License)
 ![Slack](https://img.shields.io/badge/slack-@kubernetes/fury-yellow.svg?logo=slack&label=Slack)
 
@@ -32,7 +32,7 @@ The following packages are included in the Storage Add-On Module katalog:
 
 | Package                                                                    | Version   | Description                                                                                     |
 | -------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------- |
-| [rook-operator](katalog/rook-operator)                                     | `v1.15.9` | Rook provides a way to run a highly available, durable Ceph storage in your Kubernetes cluster. |
+| [rook-operator](katalog/rook-operator)                                     | `v1.17.2` | Rook provides a way to run a highly available, durable Ceph storage in your Kubernetes cluster. |
 | [rook-hostcluster](katalog/rook-hostcluster)                               | `NA`      | Rook CRDs to run a production ready Ceph cluster providing Block and File storage.              |
 | [nfs-subdir-external-provisioner](katalog/nfs-subdir-external-provisioner) | `v4.0.2`  | Dynamic sub-dir volume provisioner on a remote NFS server.                                      |
 
@@ -40,8 +40,8 @@ Click on each package to see its full documentation.
 
 ## Compatibility
 
-- The minimum supported Kubernetes version is `v1.26.x`.
-- The minimum supported Ceph version is `v17.2.0`
+- The minimum supported Kubernetes version is `v1.28.x`.
+- The minimum supported Ceph version is `v18.2.0`
 
 Check the [compatibility matrix][compatibility-matrix] for additional information
 about previous releases of the module.
@@ -67,9 +67,9 @@ In your `furyctl.yaml` specify the storage-add-on as a plugin:
 plugins:
   kustomize:
     - name: rook-operator
-      folder: https://github.com/sighupio/add-on-storage/katalog/rook-operator?ref=v0.3.1
+      folder: https://github.com/sighupio/add-on-storage/katalog/rook-operator?ref=v0.4.0
     - name: rook-hostcluster
-      folder: https://github.com/sighupio/add-on-storage/katalog/rook-hostcluster?ref=v0.3.1
+      folder: https://github.com/sighupio/add-on-storage/katalog/rook-hostcluster?ref=v0.4.0
 ```
 
 Then, use `furyctl apply` to deploy cheph in your cluster.
@@ -85,9 +85,9 @@ Then, use `furyctl apply` to deploy cheph in your cluster.
      - name: monitoring/promtheus-operator
        version: "v2.0.1"
      - name: storage/rook-operator
-       version: "v0.3.1"
+       version: "v0.4.0"
      - name: storage/rook-hostcluster
-       version: "v0.3.1"
+       version: "v0.4.0"
    ```
 
    > [!INFO]
