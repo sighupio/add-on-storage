@@ -15,7 +15,6 @@ cluster. See [Rook website][rook-website] for more details about the project.
 ## Image repository and tag
 
 - Rook Operator image: `registry.sighup.io/fury/rook/ceph:v1.15.9`
-- Ceph image: `registry.sighup.io/fury/ceph/ceph:v17.2.5`
 
 ## Deployment
 
