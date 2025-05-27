@@ -18,7 +18,7 @@ in the following diagram:
 
 ## Requirements
 
-- Kubernetes >= `1.26.x`
+- Kubernetes >= `1.28.x`
 - Kustomize = `v5.6.0`
 - [rook-operator](../rook-operator)
 - [prometheus-operator](https://github.com/sighupio/fury-kubernetes-monitoring/tree/main/katalog/prometheus-operator)
@@ -65,7 +65,7 @@ interact with your Ceph cluster.
 
 > ⚠️ **WARNING**
 > Be careful since, by default, the dashboard gives you R/W access to your Ceph
-> cluster and you risk of deleting resources created throught the operator CRDs.
+> cluster and you risk of deleting resources created through the operator CRDs.
 
 <!-- </SD-DOCS> -->
 
