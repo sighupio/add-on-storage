@@ -79,7 +79,7 @@ steps:
     depends_on:
       - render
     commands:
-      - "[ $(grep -oP 'image:\\\\s*\\\\K\\\\S+' $${KUBERNETES_MANIFESTS} | grep -vE '(^$|registry.sighup.io)' | wc -l) -eq 0 ]"
+      - "[ $(grep -ioP 'image:\\\\s*\\\\K\\\\S+' $${KUBERNETES_MANIFESTS} | grep -vE '(^$|registry.sighup.io)' | wc -l) -eq 0 ]"
     environment:
       KUBERNETES_MANIFESTS: rook-hostcluster.yml
 
