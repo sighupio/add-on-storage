@@ -72,6 +72,27 @@ steps:
     environment:
       KUBERNETES_MANIFESTS: nfs-subdir-external-provisioner.yml
 
+  - &check-image-repositories
+    name: check-image-repositories-rook-hostcluster
+    image: quay.io/sighup/e2e-testing:2.24.17_1.1.0_3.12.0_1.32.2_5.6.0_4.33.3
+    pull: always
+    depends_on:
+      - render
+    commands:
+      - "[ $(grep -oP 'image:\\\\s*\\\\K\\\\S+' $${KUBERNETES_MANIFESTS} | grep -vE '(^$|registry.sighup.io)' | wc -l) -eq 0 ]"
+    environment:
+      KUBERNETES_MANIFESTS: rook-hostcluster.yml
+
+  - <<: *check-image-repositories
+    name: check-image-repositories-rook-operator
+    environment:
+      KUBERNETES_MANIFESTS: rook-operator.yml
+
+  - <<: *check-image-repositories
+    name: check-image-repositories-nfs-subdir-external-provisioner
+    environment:
+      KUBERNETES_MANIFESTS: nfs-subdir-external-provisioner.yml
+
 ---
 kind: pipeline
 name: release
