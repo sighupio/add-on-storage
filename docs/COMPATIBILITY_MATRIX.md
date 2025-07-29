@@ -17,7 +17,6 @@
 | v0.2.0                                | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
 | v0.3.0                                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | v0.3.1                                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| v0.3.2                                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | v0.4.0                                | :x:                | :x:                | :white_check_mark: | :white_check_mark: |
 | v0.4.1                                | :x:                | :x:                | :white_check_mark: | :white_check_mark: |
 
