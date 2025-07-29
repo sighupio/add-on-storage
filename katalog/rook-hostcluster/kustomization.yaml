@@ -11,7 +11,7 @@ namespace: rook-ceph
 images:
   - name: quay.io/ceph/ceph
     newName: registry.sighup.io/fury/ceph/ceph
-    newTag: v19
+    newTag: v19.2.2
 
 resources:
   - monitoring
