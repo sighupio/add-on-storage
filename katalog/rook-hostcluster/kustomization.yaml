@@ -9,9 +9,6 @@ kind: Kustomization
 namespace: rook-ceph
 
 images:
-  - name: rook/ceph
-    newName: registry.sighup.io/fury/rook/ceph
-    newTag: v1.17.2
   - name: quay.io/ceph/ceph
     newName: registry.sighup.io/fury/ceph/ceph
     newTag: v19.2.2
